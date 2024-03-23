@@ -48,7 +48,8 @@ public class JavaChatAppUser2 extends JFrame implements ActionListener,Runnable 
 
         }
 
-        readInputThread = new Thread(this);
+        ThreadGroup tg = new ThreadGroup("JavaChatApp");
+        readInputThread = new Thread(tg,this);
         readInputThread.setDaemon(true);
         readInputThread.start();
 

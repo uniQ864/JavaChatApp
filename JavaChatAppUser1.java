@@ -44,7 +44,8 @@ public class JavaChatAppUser1 extends JFrame implements ActionListener,Runnable 
             System.out.println(e.getMessage());
         }
 
-        readInputThread = new Thread(this);//Creating and linking the current class to the Thread class by passing the instance.
+        ThreadGroup tg = new ThreadGroup("JavaChatApp");
+        readInputThread = new Thread(tg,this);//Creating and linking the current class to the Thread class by passing the instance.
         readInputThread.setDaemon(true);//Main use of this thread is to run the logic that the user should always ready to take the input msg from the sender from the beginning to end of the program execution, Hence the thread is made as daemon thread.
         readInputThread.start();   //And start the readInputThread.
 
